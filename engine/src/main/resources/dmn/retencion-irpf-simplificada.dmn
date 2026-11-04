@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Definitions_1lmiylr" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.50.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <decision id="irpfRetention" name="irpfRetention">
+    <variable id="Variable_1" name="irpfRetention" typeRef="Any" />
+    <informationRequirement id="InformationRequirement_1l41cff">
+      <requiredInput href="#annualIncome" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1jihgyt">
+      <input id="Input_1" label="annualIncome">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>annualIncome</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="retentionRate" name="retentionRate" typeRef="number" />
+      <rule id="DecisionRule_0ah91s8">
+        <inputEntry id="UnaryTests_1eopd07">
+          <text>[0..12450)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ou1xwo">
+          <text>19</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19k260l">
+        <inputEntry id="UnaryTests_1l4g4s0">
+          <text>[12450..20200)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r7g7x8">
+          <text>24</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13jggdz">
+        <inputEntry id="UnaryTests_1cqe9mt">
+          <text>[20200..35200)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fwdy05">
+          <text>30</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1t43y9u">
+        <inputEntry id="UnaryTests_1u0sc4d">
+          <text>[35200..60000)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pkeg7v">
+          <text>37</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0p7nr7w">
+        <inputEntry id="UnaryTests_1duzw57">
+          <text>[60000..300000)</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vy6pg2">
+          <text>45</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_096fcab">
+        <inputEntry id="UnaryTests_0l2mhya">
+          <text>&gt;= 300000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kry3m1">
+          <text>47</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="annualIncome" name="annualIncome">
+    <variable id="InformationItem_14n9pvo" typeRef="Any" />
+  </inputData>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="Decision_0a9tvth_di" dmnElementRef="irpfRetention">
+        <dc:Bounds height="80" width="180" x="380" y="50" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_042r00w" dmnElementRef="annualIncome">
+        <dc:Bounds height="45" width="125" x="148" y="48" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1rxnsy3" dmnElementRef="InformationRequirement_1l41cff">
+        <di:waypoint x="273" y="71" />
+        <di:waypoint x="360" y="90" />
+        <di:waypoint x="380" y="90" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
