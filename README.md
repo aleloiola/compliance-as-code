@@ -1,4 +1,5 @@
-# Compliance as Code - Statutory rules as a versioned rule set, outside the product core
+# Compliance as Code 
+Statutory rules as a versioned rule set, outside the product core
 Several weeks, even months are necessary to update the product when a new law is published. Every legal change triggers a full release cycle, which slows the business down.
 ## What we already have in place
 - IRPF official table in DMN
